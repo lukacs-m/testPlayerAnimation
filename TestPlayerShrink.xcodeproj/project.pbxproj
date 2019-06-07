@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52E141B392E97279DE99414A /* Pods_TestPlayerShrink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4A3F175BDFEEA3F119E117 /* Pods_TestPlayerShrink.framework */; };
 		5B16B79022A6ACD300342344 /* MainTabBarControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B16B78F22A6ACD300342344 /* MainTabBarControlller.swift */; };
 		5B16B79222A6ADFD00342344 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B16B79122A6ADFD00342344 /* FirstViewController.swift */; };
 		5B16B79422A6AE0B00342344 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B16B79322A6AE0B00342344 /* SecondViewController.swift */; };
 		5B16B79722A6B03700342344 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B16B79522A6B03700342344 /* PlayerViewController.swift */; };
 		5B16B79822A6B03700342344 /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B16B79622A6B03700342344 /* PlayerViewController.xib */; };
+		5B16B7F122AA68EA00342344 /* NewStackViewPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B16B7EF22AA68EA00342344 /* NewStackViewPlayerViewController.swift */; };
+		5B16B7F222AA68EA00342344 /* NewStackViewPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B16B7F022AA68EA00342344 /* NewStackViewPlayerViewController.xib */; };
 		5BBC44BE22A55F910077142D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBC44BD22A55F910077142D /* AppDelegate.swift */; };
 		5BBC44C022A55F910077142D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBC44BF22A55F910077142D /* ViewController.swift */; };
 		5BBC44C322A55F910077142D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BBC44C122A55F910077142D /* Main.storyboard */; };
@@ -20,11 +23,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1519479F191901F980FFE029 /* Pods-TestPlayerShrink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestPlayerShrink.debug.xcconfig"; path = "Target Support Files/Pods-TestPlayerShrink/Pods-TestPlayerShrink.debug.xcconfig"; sourceTree = "<group>"; };
+		4C4A3F175BDFEEA3F119E117 /* Pods_TestPlayerShrink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestPlayerShrink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B16B78F22A6ACD300342344 /* MainTabBarControlller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarControlller.swift; sourceTree = "<group>"; };
 		5B16B79122A6ADFD00342344 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		5B16B79322A6AE0B00342344 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		5B16B79522A6B03700342344 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		5B16B79622A6B03700342344 /* PlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerViewController.xib; sourceTree = "<group>"; };
+		5B16B7EF22AA68EA00342344 /* NewStackViewPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStackViewPlayerViewController.swift; sourceTree = "<group>"; };
+		5B16B7F022AA68EA00342344 /* NewStackViewPlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewStackViewPlayerViewController.xib; sourceTree = "<group>"; };
 		5BBC44BA22A55F910077142D /* TestPlayerShrink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestPlayerShrink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBC44BD22A55F910077142D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BBC44BF22A55F910077142D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,6 +39,7 @@
 		5BBC44C422A55F930077142D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BBC44C722A55F930077142D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BBC44C922A55F930077142D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C78288EAE7672BDC3A074E9 /* Pods-TestPlayerShrink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestPlayerShrink.release.xcconfig"; path = "Target Support Files/Pods-TestPlayerShrink/Pods-TestPlayerShrink.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +47,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52E141B392E97279DE99414A /* Pods_TestPlayerShrink.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BDFBE2E37D7F89336230624 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C4A3F175BDFEEA3F119E117 /* Pods_TestPlayerShrink.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5BBC44B122A55F910077142D = {
 			isa = PBXGroup;
 			children = (
 				5BBC44BC22A55F910077142D /* TestPlayerShrink */,
 				5BBC44BB22A55F910077142D /* Products */,
+				5BD061759F7DEAB1B6799B7E /* Pods */,
+				0BDFBE2E37D7F89336230624 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,8 +94,20 @@
 				5B16B79322A6AE0B00342344 /* SecondViewController.swift */,
 				5B16B79522A6B03700342344 /* PlayerViewController.swift */,
 				5B16B79622A6B03700342344 /* PlayerViewController.xib */,
+				5B16B7EF22AA68EA00342344 /* NewStackViewPlayerViewController.swift */,
+				5B16B7F022AA68EA00342344 /* NewStackViewPlayerViewController.xib */,
 			);
 			path = TestPlayerShrink;
+			sourceTree = "<group>";
+		};
+		5BD061759F7DEAB1B6799B7E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1519479F191901F980FFE029 /* Pods-TestPlayerShrink.debug.xcconfig */,
+				9C78288EAE7672BDC3A074E9 /* Pods-TestPlayerShrink.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,9 +117,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BBC44CC22A55F930077142D /* Build configuration list for PBXNativeTarget "TestPlayerShrink" */;
 			buildPhases = (
+				4540D10B6B1183522DDB679E /* [CP] Check Pods Manifest.lock */,
 				5BBC44B622A55F910077142D /* Sources */,
 				5BBC44B722A55F910077142D /* Frameworks */,
 				5BBC44B822A55F910077142D /* Resources */,
+				305D39303658EB712519EF32 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -139,12 +172,55 @@
 			files = (
 				5BBC44C822A55F930077142D /* LaunchScreen.storyboard in Resources */,
 				5B16B79822A6B03700342344 /* PlayerViewController.xib in Resources */,
+				5B16B7F222AA68EA00342344 /* NewStackViewPlayerViewController.xib in Resources */,
 				5BBC44C522A55F930077142D /* Assets.xcassets in Resources */,
 				5BBC44C322A55F910077142D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		305D39303658EB712519EF32 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestPlayerShrink/Pods-TestPlayerShrink-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestPlayerShrink/Pods-TestPlayerShrink-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestPlayerShrink/Pods-TestPlayerShrink-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4540D10B6B1183522DDB679E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TestPlayerShrink-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5BBC44B622A55F910077142D /* Sources */ = {
@@ -155,6 +231,7 @@
 				5BBC44C022A55F910077142D /* ViewController.swift in Sources */,
 				5BBC44BE22A55F910077142D /* AppDelegate.swift in Sources */,
 				5B16B79422A6AE0B00342344 /* SecondViewController.swift in Sources */,
+				5B16B7F122AA68EA00342344 /* NewStackViewPlayerViewController.swift in Sources */,
 				5B16B79222A6ADFD00342344 /* FirstViewController.swift in Sources */,
 				5B16B79722A6B03700342344 /* PlayerViewController.swift in Sources */,
 			);
@@ -300,6 +377,7 @@
 		};
 		5BBC44CD22A55F930077142D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1519479F191901F980FFE029 /* Pods-TestPlayerShrink.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -318,6 +396,7 @@
 		};
 		5BBC44CE22A55F930077142D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C78288EAE7672BDC3A074E9 /* Pods-TestPlayerShrink.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

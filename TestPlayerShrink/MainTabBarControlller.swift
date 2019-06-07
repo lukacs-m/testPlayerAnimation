@@ -7,7 +7,40 @@
 //
 import UIKit
 
-class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate {
+protocol PlayerPresenter: class {
+    func showPlayer()
+}
+
+extension PlayerPresenter where Self: UIViewController {
+    func showPlayer() {
+        let playerVC = NewStackViewPlayerViewController(nibName: "NewStackViewPlayerViewController", bundle: nil)
+//        playerVC.view.frame = view.bounds
+        playerVC.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        playerVC.view.alpha = 0
+        playerVC.view.transform = CGAffineTransform(translationX: 0, y: view.frame.height)
+        self.addChild(playerVC)
+        self.view.addSubview(playerVC.view)
+        playerVC.didMove(toParent: self)
+        UIView.animate(withDuration: 0.5, animations: {
+            playerVC.view.transform = .identity  //CGAffineTransform(translationX: 0, y: 0)
+            playerVC.view.alpha = 1
+//            playerVC.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+//            playerVC.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+//            playerVC.view.topAnchor.constraint(equalToSystemSpacingBelow: self.view.safeAreaLayoutGuide.topAnchor, multiplier: 1).isActive = true
+//            playerVC.view.bottomAnchor.constraint(equalToSystemSpacingBelow: self.view.safeAreaLayoutGuide.bottomAnchor, multiplier: 1).isActive = true
+
+            
+            playerVC.view.frame = CGRect(x: 0, y: 40, width: UIApplication.shared.keyWindow!.bounds.width, height: UIApplication.shared.keyWindow!.bounds.height)
+            
+        })
+    }
+    
+
+}
+
+
+
+class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate, PlayerPresenter {
     
     override func viewDidLoad() {
         super.viewDidLoad()

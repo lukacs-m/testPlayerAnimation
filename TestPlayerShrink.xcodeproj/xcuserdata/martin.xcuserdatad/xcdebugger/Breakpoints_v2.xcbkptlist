@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestPlayerShrink/ViewController.swift"
-            timestampString = "581436451.487921"
+            timestampString = "581607018.5321701"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "152"
@@ -25,13 +25,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TestPlayerShrink/PlayerViewController.swift"
-            timestampString = "581436451.4879971"
+            filePath = "TestPlayerShrink/NewStackViewPlayerViewController.swift"
+            timestampString = "581607018.5322731"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "minimizePlayerWindow()"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "minimizeAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TestPlayerShrink/NewStackViewPlayerViewController.swift"
+            timestampString = "581607018.532847"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "closeAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

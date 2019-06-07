@@ -13,7 +13,7 @@ import AVFoundation
 
 
 class PlayerViewController: UIViewController {
-
+    
     @IBOutlet weak var playerContainer: UIView!
     @IBOutlet weak var infoContainer: UIView!
     @IBOutlet weak var miniPlayerBar: UIView!
@@ -25,9 +25,11 @@ class PlayerViewController: UIViewController {
     
     private let ipadMiniPlayerHeight: CGFloat = 90.0
     private let ipadMiniPlayerWidth: CGFloat = 160.0
+    private let iphoneMiniPlayerHeight: CGFloat = 72.0
+    
     private let margin: CGFloat = 5.0
     private let duration: TimeInterval = 0.5
-
+    var isMinimized = false
     
     var player: AVQueuePlayer!
     var avPlayerController: AVPlayerViewController!
@@ -67,17 +69,17 @@ class PlayerViewController: UIViewController {
     @objc private func actionTapOnScrollView(sender:UITapGestureRecognizer){
         print("cestlamerde")
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
     }
     
     
-//    func displayPlayer() {
-//        let vc = UIApplication.shared.keyWindow?.rootViewController
-//
-//    }
+    //    func displayPlayer() {
+    //        let vc = UIApplication.shared.keyWindow?.rootViewController
+    //
+    //    }
 }
 
 
@@ -106,30 +108,30 @@ private extension PlayerViewController {
     
     @objc func swipeUpAction() {
         print("swipe up")
-
-//        restorePlayerWindow()
+        
+        restorePlayerWindow()
     }
     
     @objc func swipeLeftAction() {
         print("swipe left")
-
-//        guard isMinimized, UIDevice.current.userInterfaceIdiom == .pad  else { return }
-//        UIView.animate(withDuration: duration, animations: {
-//            self.mpContainer.alpha = 0.0
-//            self.mpContainer.transform = CGAffineTransform(translationX: -90, y: 0)
-//        })
+        
+        guard isMinimized, UIDevice.current.userInterfaceIdiom == .pad  else { return }
+        UIView.animate(withDuration: duration, animations: {
+            self.playerContainer.alpha = 0.0
+            self.playerContainer.transform = CGAffineTransform(translationX: -90, y: 0)
+        })
     }
     
     @objc func doubleTapped() {
         print("doubble tap")
-
-//        guard isMinimized else { return }
-//        restorePlayerWindow()
+        
+        guard isMinimized else { return }
+        restorePlayerWindow()
     }
     
     
     func minimizePlayerWindow() {
-//        self.isMinimized = true
+        self.isMinimized = true
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             let x: CGFloat = self.view.bounds.size.width - (ipadMiniPlayerWidth + margin)
@@ -139,29 +141,90 @@ private extension PlayerViewController {
                 self.playerContainer.frame = CGRect(x: x, y: y, width: self.ipadMiniPlayerWidth, height: self.ipadMiniPlayerHeight)
                 self.avPlayerController.showsPlaybackControls = false
                 self.view.frame = CGRect(x: x, y: y, width: self.ipadMiniPlayerWidth, height: self.ipadMiniPlayerHeight)
-
+                
                 self.infoContainer.alpha = 0.0
                 self.view.layoutIfNeeded()
             }
+        } else {
+            let x: CGFloat = margin
+            let y: CGFloat = self.view.frame.size.height - (iphoneMiniPlayerHeight + margin + 100)
+            let fullwidth = self.view.frame.size.width - (2 * self.margin)
+            let widthTest = (self.view.frame.size.width - (2 * self.margin)) / 3
+            
+            UIView.animateKeyframes(withDuration: duration, delay: 0, options: [.calculationModeCubic], animations: {
+                
+                // Add animations
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.2/0.5, animations: {
+                    self.infoContainer.alpha = 0.0
+                    self.infoContainer.frame = CGRect(x: x, y: y, width: fullwidth, height: 0)
+                    self.playerContainer.frame = CGRect(x: x, y: y, width: fullwidth, height: self.iphoneMiniPlayerHeight)
+                    
+                    
+                    
+                })
+                UIView.addKeyframe(withRelativeStartTime: 0.2/0.5, relativeDuration: 0.2/0.5, animations: {
+                    self.miniPlayerBar.alpha = 1.0
+                    self.miniPlayerBar.frame = CGRect(x: self.margin + widthTest, y: y, width: widthTest * 2, height: self.iphoneMiniPlayerHeight)
+                    self.playerContainer.frame = CGRect(x: x, y: y, width: widthTest, height: self.iphoneMiniPlayerHeight)
+                    //                    self.view.frame = CGRect(x: x, y: y, width:  self.view.bounds.size.width - (2 * self.margin), height: self.iphoneMiniPlayerHeight)
+                    //                    self.view.layoutIfNeeded()
+                })
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.1/0.5, animations: {
+                    
+                    self.view.frame = CGRect(x: x, y: y, width: self.view.frame.size.width, height: self.iphoneMiniPlayerHeight)
+                    self.view.layoutIfNeeded()
+                })
+                
+            }, completion:{ _ in
+                //                self.view.layoutIfNeeded()
+                
+                print("I'm done!")
+            })
+            
+            
+            
+            
+            //
+            //            UIView.animate(withDuration: duration, animations: {
+            //                self.infoContainer.frame = CGRect(x: x, y: y, width: fullwidth, height: 0)
+            //                self.playerContainer.frame = CGRect(x: x, y: y, width: fullwidth, height: self.iphoneMiniPlayerHeight)
+            //                self.infoContainer.alpha = 0.0
+            //            }) { _ in
+            //                UIView.animate(withDuration: self.duration) {
+            //                    self.miniPlayerBar.alpha = 1.0
+            //                                        self.miniPlayerBar.frame = CGRect(x: self.margin + widthTest, y: y, width: widthTest * 2, height: self.iphoneMiniPlayerHeight)
+            //                                        self.playerContainer.frame = CGRect(x: x, y: y, width: widthTest, height: self.iphoneMiniPlayerHeight)
+            //                    self.view.frame = CGRect(x: x, y: y, width: self.view.frame.size.width, height: self.iphoneMiniPlayerHeight)
+            //
+            //                }
+            //            }
         }
+    }
+    
+    func restorePlayerWindow() {
+        self.isMinimized = false
         
-        
-//        else {
-//            let x: CGFloat = margin
-//            let y: CGFloat = self.view.bounds.size.height - (iphoneMiniPlayerHeight + margin)
-//
-//            UIView.animate(withDuration: duration, animations: {
-//                self.tallMpContainer.frame = CGRect(x: x, y: y, width: self.view.bounds.size.width - (2 * self.margin), height: 0)
-//                self.mpContainer.frame = CGRect(x: x, y: y, width: self.view.bounds.size.width - (2 * self.margin), height: self.iphoneMiniPlayerHeight)
-//                self.tallMpContainer.alpha = 0.0
-//            }) { _ in
-//                UIView.animate(withDuration: self.duration) {
-//                    self.tinyPlayer.alpha = 1.0
-//                    self.tinyPlayer.frame = CGRect(x: self.margin + self.iphoneMiniPlayerWidth, y: y, width: self.tinyPlayerWidth!, height: self.iphoneMiniPlayerHeight)
-//                    self.mpContainer.frame = CGRect(x: x, y: y, width: self.iphoneMiniPlayerWidth, height: self.iphoneMiniPlayerHeight)
-//                }
-//            }
-//        }
+        //        if UIDevice.current.userInterfaceIdiom == .pad {
+        //            UIView.animate(withDuration: duration) {
+        //                self.tallMpContainer.frame = self.fullscreentallMpContainer!
+        //                self.mpContainer.frame = self.fullscreenmpContainer!
+        //                self.tallMpContainer.alpha = 1.0
+        //            }
+        //        } else {
+        //            let x: CGFloat = margin
+        //            let y: CGFloat = self.view.bounds.size.height - (iphoneMiniPlayerHeight + margin)
+        //            UIView.animate(withDuration: duration, animations: {
+        //                self.tinyPlayer.alpha = 0.0
+        //                self.tinyPlayer.frame = self.tinyContainer!
+        //                self.mpContainer.frame = CGRect(x: x, y: y, width: self.view.bounds.size.width - (2 * self.margin), height: self.iphoneMiniPlayerHeight)
+        //            }) { _ in
+        //                UIView.animate(withDuration: self.duration) {
+        //                    self.tallMpContainer.alpha = 1.0
+        //                    self.tallMpContainer.frame = self.fullscreentallMpContainer!
+        //                    self.mpContainer.frame = self.fullscreenmpContainer!
+        //                }
+        //            }
+        //        }
     }
     
 }
