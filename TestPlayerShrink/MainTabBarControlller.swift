@@ -6,21 +6,24 @@
 //  Copyright © 2019 com.plop.plop. All rights reserved.
 //
 import UIKit
+import SnapKit
 
 protocol PlayerPresenter: class {
     func showPlayer()
+//    func hidePlayer()
 }
 
 extension PlayerPresenter where Self: UIViewController {
     func showPlayer() {
         let playerVC = NewStackViewPlayerViewController(nibName: "NewStackViewPlayerViewController", bundle: nil)
-//        playerVC.view.frame = view.bounds
+        playerVC.view.frame = view.safeAreaLayoutGuide.layoutFrame
         playerVC.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         playerVC.view.alpha = 0
         playerVC.view.transform = CGAffineTransform(translationX: 0, y: view.frame.height)
         self.addChild(playerVC)
         self.view.addSubview(playerVC.view)
         playerVC.didMove(toParent: self)
+    
         UIView.animate(withDuration: 0.5, animations: {
             playerVC.view.transform = .identity  //CGAffineTransform(translationX: 0, y: 0)
             playerVC.view.alpha = 1
@@ -30,9 +33,35 @@ extension PlayerPresenter where Self: UIViewController {
 //            playerVC.view.bottomAnchor.constraint(equalToSystemSpacingBelow: self.view.safeAreaLayoutGuide.bottomAnchor, multiplier: 1).isActive = true
 
             
-            playerVC.view.frame = CGRect(x: 0, y: 40, width: UIApplication.shared.keyWindow!.bounds.width, height: UIApplication.shared.keyWindow!.bounds.height)
+//            playerVC.view.frame = CGRect(x: 0, y: 40, width: UIApplication.shared.keyWindow!.bounds.width, height: UIApplication.shared.keyWindow!.bounds.height)
+//
+//            playerVC.view.snp.makeConstraints { make in
+//                make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottomMargin)
+//                //Top guide
+//                make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin)
+//                //Leading guide
+//                make.leading.equalTo(self.view.safeAreaLayoutGuide.snp.leadingMargin)
+//                //Trailing guide
+//                make.trailing.equalTo(self.view.safeAreaLayoutGuide.snp.trailingMargin)
+////                make.edges.equalToSuperview()
+//            }
             
         })
+    }
+    
+    func hideContentController() {
+        if self.children.count > 0{
+            let viewControllers:[UIViewController] = self.children
+            for viewContoller in viewControllers{
+                viewContoller.willMove(toParent: nil)
+                viewContoller.view.removeFromSuperview()
+                viewContoller.removeFromParent()
+            }
+        }
+        
+//        content.willMove(toParent: nil)
+//        content.view.removeFromSuperview()
+//        content.removeFromParent()
     }
     
 

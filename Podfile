@@ -7,4 +7,6 @@ target 'TestPlayerShrink' do
 
   # Pods for TestPlayerShrink
 pod 'SnapKit'
+pod 'SwiftIconFont'
+
 end

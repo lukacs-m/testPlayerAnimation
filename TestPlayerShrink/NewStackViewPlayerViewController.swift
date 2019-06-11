@@ -50,7 +50,8 @@ class NewStackViewPlayerViewController: UIViewController {
     }
     
     @IBAction func closeAction(_ sender: Any) {
-        dismiss(animated: true)
+        self.removeFromParent()
+        self.view.removeFromSuperview()
     }
     
     @IBAction func playPauseAction(_ sender: Any) {
@@ -63,32 +64,53 @@ class NewStackViewPlayerViewController: UIViewController {
 
 private extension NewStackViewPlayerViewController {
     func minimize() {
+        guard UIDevice.current.userInterfaceIdiom != .pad  else {
+            return }
+
+        
         self.isMinimized = true
         
-        let y: CGFloat = self.view.frame.size.height - (72 + margin + 100)
-        UIView.animateKeyframes(withDuration: 5, delay: 0, options: [.calculationModeLinear], animations: {
+        
+        
+    
+        
+        let y: CGFloat = self.view.frame.size.height - (72 + margin)
+        UIView.animateKeyframes(withDuration: 4, delay: 0, options: [.calculationModeLinear], animations: {
             // Add animations
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 3/5, animations: {
-                self.avPlayerController.showsPlaybackControls = false
+            
+            UIView.addKeyframe(withRelativeStartTime: 0/4, relativeDuration: 1/4, animations: {
                 self.view.frame = CGRect(x: self.margin, y: y, width: self.view.bounds.size.width - (2 * self.margin), height: 72)
+                
+                self.view.layoutIfNeeded()
+            })
+            
+            
+            UIView.addKeyframe(withRelativeStartTime: 1/4, relativeDuration: 1/4, animations: {
+                self.avPlayerController.showsPlaybackControls = false
                 print(self.playerViewContainer.bounds)
                 self.topViewContainer.isHidden = true
+                self.topViewContainer.alpha = 0
+                self.bottomViewContainer.alpha = 0
+                self.miniControlContainer.isHidden = false
+
                 self.bottomViewContainer.isHidden = true
                 self.minimizeButton.isHidden = true
                 self.mainStackView.layoutIfNeeded()
                 self.view.layoutIfNeeded()
-                
+
             })
             
-            UIView.addKeyframe(withRelativeStartTime: 3/5, relativeDuration: 2/5, animations: {
+            
+            UIView.addKeyframe(withRelativeStartTime: 2/4, relativeDuration: 2/4, animations: {
                 self.mainStackView.axis = .horizontal
-                self.miniControlContainer.isHidden = false
+//                self.miniControlContainer.isHidden = false
                 self.mainStackView.layoutIfNeeded()
                 self.view.layoutIfNeeded()
+                self.miniControlContainer.alpha = 1
             })
             
         }, completion:{ _ in
-            
+
             print("I'm done!")
         })
     }
